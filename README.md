@@ -14,3 +14,6 @@ micro arch - 1 creating lambda function that was triggered from s3 when somethin
 micro arch - 2 - application front end
 micro arch - 3 - backend creation with route 53 alias endpoints website hosting
 
+CI/CD Flow :
+
+VCS - GitHub --> Jenkins/githubactions (ccontinuous Integration) --> Frontend code build in node / Backend code build in maven --> Build success --> Terraform architecture creation in AWS (optional)--> Image build in docker --> puch in Docker registry --> Deploy in kubernetes 
