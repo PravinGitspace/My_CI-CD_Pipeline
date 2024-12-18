@@ -30,6 +30,64 @@
             margin-left: 220px;
             padding: 20px;
         }
+        .welcome-message {
+            margin-bottom: 20px;
+        }
+        .photo-container {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            height: 150px;
+            perspective: 1000px;
+        }
+        .photo {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        .photo img {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+        .photo .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotateY(180deg);
+        }
+        .photo.flipped {
+            transform: rotateY(180deg);
+        }
+        .social-links a {
+            margin: 0 10px;
+            color: goldenrod;
+            text-decoration: none;
+        }
+        .cards-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        .card {
+            min-width: 200px;
+            background-color: #333;
+            color: white;
+            margin-right: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -40,7 +98,35 @@
         <a href="about.html">About Me</a>
     </div>
     <div class="content">
-        <h1>Welcome to Pravin's Web</h1>
+        <div class="welcome-message">
+            <h1>Welcome! You just landed into Pravin's website</h1>
+        </div>
+        <div class="photo-container">
+            <div class="photo" id="photo">
+                <img src="your-photo.jpg" alt="Pravin">
+                <div class="back">
+                    <div class="social-links">
+                        <a href="https://instagram.com" target="_blank">Instagram</a>
+                        <a href="https://youtube.com" target="_blank">YouTube</a>
+                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cards-container">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+            <div class="card">Card 4</div>
+            <div class="card">Card 5</div>
+        </div>
     </div>
+
+    <script>
+        // Flip photo on click
+        document.getElementById('photo').addEventListener('click', function() {
+            this.classList.toggle('flipped');
+        });
+    </script>
 </body>
 </html>
