@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pravin's Website - Content</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 20%;
+            background-color: #444;
+            color: white;
+            padding: 20px;
+            text-align: left;
+            height: 100vh;
+            position: fixed;
+        }
+
+        .sidebar a {
+            display: block;
+            margin-bottom: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5em;
+        }
+
+        .sidebar a:hover {
+            color: #FFD700;
+        }
+
+        /* Content Area */
+        .content {
+            margin-left: 20%;
+            padding: 20px;
+            width: 80%;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #FFD700;
+        }
+
+        .default-message {
+            font-size: 1.5em;
+            color: #FFD700;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar (Left Section) -->
+    <div class="sidebar">
+        <a href="#about" id="aboutLink">About Me</a>
+        <a href="#certifications" id="certificationsLink">Certifications</a>
+        <a href="#resume" id="resumeLink">Resume</a>
+        <a href="#contact" id="contactLink">Contact Me</a>
+    </div>
+
+    <!-- Main Content (Right Section) -->
+    <div class="content">
+        
+        <!-- Default Message -->
+        <div id="defaultMessage" class="default-message">
+            Click any one on the left
+        </div>
+
+        <!-- About Me Section -->
+        <div id="about" class="section" style="display: none;">
+            <h2>AWS DevOps Engineer</h2>
+            <p><strong>Expert in AWS Cloud Infrastructures, Kubernetes, and RDS | Innovator in Cloud Solutions</strong></p>
+            <h3>About</h3>
+            <p>As an AWS DevOps Engineer with extensive expertise in navigating complex AWS cloud infrastructures, I leverage my skills in Amazon Web Services to optimize system functionality and performance. My dedication to innovation, coupled with a strong background in Kubernetes and RDS, empowers me to deliver advanced, cutting-edge solutions that drive business success.</p>
+        </div>
+
+        <!-- Certifications Section -->
+        <div id="certifications" class="section" style="display: none;">
+            <h2>Certifications</h2>
+            <div class="link-box">
+                <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/a9ffdbe6d5394b968c7336a178a7224f" target="_blank">AWS Certified Developer Associate</a>
+            </div>
+        </div>
+
+        <!-- Resume Section -->
+        <div id="resume" class="section" style="display: none;">
+            <h2>Resume</h2>
+            <p>PRAVINKUMAR M</p>
+            <p>Email: pravindzlr@gmail.com | Phone: +91 8610664717</p>
+            <p>AWS DevOps Engineer | Cloud Architect</p>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+
+        <!-- Contact Me Section -->
+        <div id="contact" class="section" style="display: none;">
+            <h2>Contact Me</h2>
+            <form class="form-container" method="POST" action="mailto:pravinkumar233@gmail.com">
+                <input type="text" name="name" placeholder="Your Name" required><br>
+                <input type="email" name="email" placeholder="Your Email" required><br>
+                <textarea name="message" placeholder="Your Message to Pravin" required></textarea><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        // Default behavior: Show the message when no section is clicked
+        document.getElementById('defaultMessage').style.display = "block";
+
+        // When a link is clicked, hide the default message and show the corresponding section
+        document.getElementById('aboutLink').onclick = function() {
+            document.getElementById('defaultMessage').style.display = "none";
+            document.getElementById('about
