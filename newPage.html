@@ -1,128 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pravin's Website - Content</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: black;
-            color: white;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pravin's Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      background-color: #333; /* Set background color for the right content area */
+    }
 
-        /* Sidebar Styles */
-        .sidebar {
-            width: 20%;
-            background-color: #444;
-            color: white;
-            padding: 20px;
-            text-align: left;
-            height: 100vh;
-            position: fixed;
-        }
+    /* Left Navigation styles */
+    .left-nav {
+      width: 20%;
+      background-color: #000; /* Black background for left side */
+      color: white;
+      padding: 20px;
+      position: fixed;
+      height: 100%;
+      border-right: 3px solid white; /* White border for left navigation */
+    }
 
-        .sidebar a {
-            display: block;
-            margin-bottom: 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.5em;
-        }
+    .left-nav h3 {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+    }
 
-        .sidebar a:hover {
-            color: #FFD700;
-        }
+    .left-nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
 
-        /* Content Area */
-        .content {
-            margin-left: 20%;
-            padding: 20px;
-            width: 80%;
-        }
+    .left-nav ul li {
+      margin: 20px 0;
+    }
 
-        .section {
-            margin-top: 20px;
-        }
+    .left-nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      padding: 10px;
+      background-color: #444;
+      border-radius: 5px;
+    }
 
-        .section h2 {
-            font-size: 2em;
-            color: #FFD700;
-        }
+    .left-nav ul li a:hover {
+      background-color: #555;
+    }
 
-        .default-message {
-            font-size: 1.5em;
-            color: #FFD700;
-            text-align: center;
-            margin-top: 20px;
-        }
+    /* Right Content Styles */
+    .right-content {
+      margin-left: 25%; /* Increased margin-left to shift content further to the right */
+      padding: 30px;
+      width: 75%; /* Adjust width accordingly */
+      min-height: 100vh;
+      background-color: #333; /* Black background for right content area */
+      color: white; /* Set text color to white for readability */
+      overflow: auto; /* Ensures the content inside the right section scrolls if necessary */
+    }
 
-    </style>
+    .content-section {
+      display: none;
+    }
+
+    /* Contact Form Popup Styling */
+    .popup-form {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .popup-form input,
+    .popup-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-button {
+      cursor: pointer;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .contact-button:hover {
+      background-color: #0056b3;
+    }
+
+    #clickLeftText {
+      font-size: 20px;
+      color: gray;
+    }
+  </style>
 </head>
 <body>
+  <!-- Left Navigation -->
+  <div class="left-nav">
+    <h3>Pravin's Website</h3>
+    <ul>
+      <li><a href="#" onclick="showContent('aboutMe')">About Me</a></li>
+      <li><a href="#" onclick="showContent('certifications')">Certifications</a></li>
+      <li><a href="#" onclick="showContent('resume')">Resume</a></li>
+      <li><a href="#" onclick="showContent('contactMe')">Contact Me</a></li>
+    </ul>
+  </div>
 
-    <!-- Sidebar (Left Section) -->
-    <div class="sidebar">
-        <a href="#about" id="aboutLink">About Me</a>
-        <a href="#certifications" id="certificationsLink">Certifications</a>
-        <a href="#resume" id="resumeLink">Resume</a>
-        <a href="#contact" id="contactLink">Contact Me</a>
+  <!-- Right Content -->
+  <div class="right-content">
+    <!-- Dynamic Content Sections -->
+    <div id="aboutMe" class="content-section">
+      <h2>About Me</h2>
+      <p>AWS DevOps Engineer | Expert in AWS Cloud Infrastructures, Kubernetes, and RDS | Innovator in Cloud Solutions</p>
+      <h3>About:</h3>
+      <p>As an AWS DevOps Engineer with extensive expertise...</p>
+      <h3>Experience:</h3>
+      <ul>
+        <li>TCS - Cloud DevOps Engineer (June 2021 - Present)</li>
+        <!-- Add your experience content here -->
+      </ul>
     </div>
 
-    <!-- Main Content (Right Section) -->
-    <div class="content">
-        
-        <!-- Default Message -->
-        <div id="defaultMessage" class="default-message">
-            Click any one on the left
-        </div>
-
-        <!-- About Me Section -->
-        <div id="about" class="section" style="display: none;">
-            <h2>AWS DevOps Engineer</h2>
-            <p><strong>Expert in AWS Cloud Infrastructures, Kubernetes, and RDS | Innovator in Cloud Solutions</strong></p>
-            <h3>About</h3>
-            <p>As an AWS DevOps Engineer with extensive expertise in navigating complex AWS cloud infrastructures, I leverage my skills in Amazon Web Services to optimize system functionality and performance. My dedication to innovation, coupled with a strong background in Kubernetes and RDS, empowers me to deliver advanced, cutting-edge solutions that drive business success.</p>
-        </div>
-
-        <!-- Certifications Section -->
-        <div id="certifications" class="section" style="display: none;">
-            <h2>Certifications</h2>
-            <div class="link-box">
-                <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/a9ffdbe6d5394b968c7336a178a7224f" target="_blank">AWS Certified Developer Associate</a>
-            </div>
-        </div>
-
-        <!-- Resume Section -->
-        <div id="resume" class="section" style="display: none;">
-            <h2>Resume</h2>
-            <p>PRAVINKUMAR M</p>
-            <p>Email: pravindzlr@gmail.com | Phone: +91 8610664717</p>
-            <p>AWS DevOps Engineer | Cloud Architect</p>
-            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-        </div>
-
-        <!-- Contact Me Section -->
-        <div id="contact" class="section" style="display: none;">
-            <h2>Contact Me</h2>
-            <form class="form-container" method="POST" action="mailto:pravinkumar233@gmail.com">
-                <input type="text" name="name" placeholder="Your Name" required><br>
-                <input type="email" name="email" placeholder="Your Email" required><br>
-                <textarea name="message" placeholder="Your Message to Pravin" required></textarea><br>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-
+    <div id="certifications" class="content-section">
+      <h2>Certifications</h2>
+      <div>
+        <h3>AWS Certified Developer Associate</h3>
+        <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/a9ffdbe6d5394b968c7336a178a7224f" target="_blank">Verify Certification</a>
+      </div>
     </div>
 
-    <script>
-        // Default behavior: Show the message when no section is clicked
-        document.getElementById('defaultMessage').style.display = "block";
+    <div id="resume" class="content-section">
+      <h2>Resume</h2>
+      <p>PRAVINKUMAR M</p>
+      <p>Email: pravindzlr@gmail.com</p>
+      <p>Phone: +91 8610664717</p>
+      <p>Skills, Education, Work Experience...</p>
+      <h3>Download my Resume:</h3>
+      <!-- Link to the PDF resume stored in the same directory -->
+      <a href="assets/resume.pdf" download class="contact-button">Download Resume</a>
+    </div>
 
-        // When a link is clicked, hide the default message and show the corresponding section
-        document.getElementById('aboutLink').onclick = function() {
-            document.getElementById('defaultMessage').style.display = "none";
-            document.getElementById('about
+    <div id="contactMe" class="content-section">
+      <h2>Contact Me</h2>
+      <button class="contact-button" onclick="openContactForm()">Submit Message</button>
+    </div>
+
+    <!-- Contact Form Pop-up -->
+    <div id="contactForm" class="popup-form">
+      <h3>Contact Pravin</h3>
+      <form id="contactFormContent">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" placeholder="Your Message to Pravin" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <p id="clickLeftText">Click any one on the left to see the content.</p>
+  </div>
+
+  <script>
+    function showContent(sectionId) {
+      var sections = document.querySelectorAll('.content-section');
+      sections.forEach(function(section) {
+        section.style.display = 'none';
+      });
+
+      var selectedSection = document.getElementById(sectionId);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+        document.getElementById("clickLeftText").style.display = 'none'; // Hide default text when content is shown
+      }
+      if (sectionId !== 'contactMe') {
+        document.getElementById("contactForm").style.display = 'none'; // Hide contact form when not clicked
+      }
+    }
+
+    function openContactForm() {
+      document.getElementById("contactForm").style.display = 'block';
+    }
+
+    document.getElementById("contactFormContent").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var message = document.getElementById("message").value;
+
+      var emailContent = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+      window.location.href = `mailto:pravinkumar233@gmail.com?subject=Message from ${name}&body=${encodeURIComponent(emailContent)}`;
+
+      // Clear the form
+      document.getElementById("contactFormContent").reset();
+      document.getElementById("contactForm").style.display = 'none';
+    });
+  </script>
+</body>
+</html>
