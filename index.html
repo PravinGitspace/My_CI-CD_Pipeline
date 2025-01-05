@@ -26,15 +26,18 @@
             z-index: 1;  /* Ensures it appears above other elements */
         }
 
-        /* Welcome Text */
-        .welcome-text {
-            font-size: 1.5em;
-            position: absolute;
-            top: 100px;
-            left: 50%;
-            transform: translateX(-50%);
+        /* Welcome Text Container */
+        .welcome-container {
+            font-size: 2em;
+            font-weight: bold;
             color: white;
-            z-index: 0;  /* Behind other elements */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            width: 60%;
+            margin: 100px auto; /* Moved the welcome box further down */
+            border-radius: 15px;
+            text-align: center;
+            z-index: 2;
         }
 
         /* Thunderbolt Icon */
@@ -45,23 +48,63 @@
             left: 25%;
             top: 10px;
             transition: 0.3s;
-            z-index: 2;  /* Ensures it appears above other elements */
+            z-index: 2;
         }
 
         .thunderbolt:hover {
             color: #FFD700;
         }
 
+        /* Top-right Corner Image */
+        .top-right-image {
+            position: absolute;
+            top: 100px;  /* Adjusted position */
+            right: 20px;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
         /* Add some spacing and ensure content doesn't overlap */
         .content {
             padding-top: 150px;
         }
+
+        /* Image Carousel */
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            margin-top: 300px;  /* Moved the images further down */
+            position: relative;
+        }
+
+        .carousel-images {
+            display: flex;
+            animation: moveImages 10s linear infinite;
+        }
+
+        .carousel-image {
+            width: 350px;  /* Increased the image size */
+            height: 250px;
+            object-fit: cover;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        @keyframes moveImages {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
     </style>
 </head>
 <body>
-
-    <!-- Welcome Text -->
-    <div class="welcome-text">Welcome to Pravin's Website</div>
 
     <!-- Cloud DevOps Text on Left -->
     <div class="header-text">Cloud DevOps Engineer</div>
@@ -70,6 +113,25 @@
     <a href="newPage.html">
         <div class="thunderbolt">⚡</div>
     </a>
+
+    <!-- Top-right Corner Image -->
+    <img src="images/image2.jpg" alt="Top Image" class="top-right-image">
+
+    <!-- Welcome Text in a Container -->
+    <div class="welcome-container">
+        Yes! You are in Pravin's Webpage. Click ⚡ .
+    </div>
+
+    <!-- Image Carousel -->
+    <div class="carousel-container">
+        <div class="carousel-images">
+            <img src="images/image1.png" alt="Image 1" class="carousel-image">
+            <img src="images/image2.png" alt="Image 2" class="carousel-image">
+            <img src="images/image3.png" alt="Image 3" class="carousel-image">
+            <img src="images/image4.png" alt="Image 4" class="carousel-image">
+            <img src="images/image5.png" alt="Image 5" class="carousel-image">
+        </div>
+    </div>
 
 </body>
 </html>
