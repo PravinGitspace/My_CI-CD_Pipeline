@@ -3,130 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Pravin's Website</title>
+    <title>Cloud DevOps Engineer</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: black;
+            font-family: 'Times New Roman', serif;
+            background-color: royalblue;
             color: white;
+            margin: 0;
+            overflow: hidden;
         }
-        .sidebar {
-            width: 200px;
-            background-color: #f0f0f0;
-            padding: 10px;
-            position: fixed;
+        .fade-effect {
+            position: absolute;
+            width: 100%;
             height: 100%;
         }
-        .sidebar a {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: goldenrod;
-        }
-        .sidebar a:hover {
-            background-color: #ddd;
+        .fade-effect:hover {
+            filter: brightness(70%);
         }
         .content {
-            margin-left: 220px;
-            padding: 20px;
+            text-align: center;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
         }
-        .welcome-message {
-            margin-bottom: 20px;
-        }
-        .photo-container {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 150px;
-            height: 150px;
-            perspective: 1000px;
-        }
-        .photo {
+        .content img {
             width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
+            max-width: 700px;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+        .content h1 {
+            font-size: 3em;
+            font-style: italic;
+            font-weight: bold;
+        }
+        .thunder-icon {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 30px;
             cursor: pointer;
+            z-index: 1000;
         }
-        .photo img {
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-        }
-        .photo .back {
-            position: absolute;
+        .thunder-effect {
+            display: none;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: black;
+            background: rgba(255, 255, 255, 0.7);
+            animation: thunder 1s forwards;
+        }
+        @keyframes thunder {
+            0% { background: rgba(255, 255, 255, 0.7); }
+            100% { background: transparent; }
+        }
+        .explore-section {
+            display: none;
+            text-align: center;
+            background-color: royalblue;
             color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: rotateY(180deg);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding-top: 20%;
         }
-        .photo.flipped {
-            transform: rotateY(180deg);
+        .explore-section h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
-        .social-links a {
-            margin: 0 10px;
-            color: goldenrod;
+        .explore-links a {
+            display: block;
+            margin: 10px 0;
+            font-size: 1.5em;
             text-decoration: none;
+            color: goldenrod;
         }
-        .cards-container {
-            display: flex;
-            overflow-x: auto;
-            padding: 10px 0;
-        }
-        .card {
-            min-width: 200px;
-            background-color: #333;
-            color: white;
-            margin-right: 10px;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .explore-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <a href="index.html">Home</a>
-        <a href="#">My Learnings</a>
-        <a href="#">DevOps Flow</a>
-        <a href="about.html">About Me</a>
-    </div>
+    <div class="fade-effect"></div>
     <div class="content">
-        <div class="welcome-message">
-            <h1>Welcome! You just landed into Pravin's website</h1>
-        </div>
-        <div class="photo-container">
-            <div class="photo" id="photo">
-                <img src="https://github.com/PravinGitspace/My_CI-CD_Pipeline/blob/main/Media.jpg" alt="Pravin">
-                <div class="back">
-                    <div class="social-links">
-                        <a href="https://instagram.com" target="_blank">Instagram</a>
-                        <a href="https://youtube.com" target="_blank">YouTube</a>
-                        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="cards-container">
-            <div class="card">Card 1</div>
-            <div class="card">Card 2</div>
-            <div class="card">Card 3</div>
-            <div class="card">Card 4</div>
-            <div class="card">Card 5</div>
+        <img src="https://via.placeholder.com/700x300" alt="Cloud Engineer">
+        <h1>Cloud DevOps Engineer</h1>
+    </div>
+    <div class="thunder-icon" onclick="triggerThunder()">
+        ⚡
+    </div>
+    <div class="thunder-effect" id="thunderEffect"></div>
+    <div class="explore-section" id="exploreSection">
+        <h1>What do you want to explore on this website?</h1>
+        <div class="explore-links">
+            <a href="#" onclick="goToHome()">Home</a>
+            <a href="#">About Me</a>
+            <a href="#">Hire Me</a>
         </div>
     </div>
-
     <script>
-        // Flip photo on click
-        document.getElementById('photo').addEventListener('click', function() {
-            this.classList.toggle('flipped');
-        });
+        function triggerThunder() {
+            const thunderEffect = document.getElementById('thunderEffect');
+            const exploreSection = document.getElementById('exploreSection');
+            thunderEffect.style.display = 'block';
+            setTimeout(() => {
+                thunderEffect.style.display = 'none';
+                exploreSection.style.display = 'block';
+            }, 1000);
+        }
+        function goToHome() {
+            location.reload(); // Reloads the page to return to the "Home" view.
+        }
     </script>
 </body>
 </html>
