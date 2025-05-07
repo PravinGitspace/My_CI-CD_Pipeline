@@ -1,0 +1,63 @@
+<div id="contactMe" class="content-section">
+    <h2>Contact</h2>
+  
+    <style>
+      .contact-input {
+        width: 50%; /* Adjusting the width to make it smaller */
+        padding: 8px; /* Smaller padding */
+        margin: 10px 0 20px;
+        border: none;
+        background-color: #ccc;
+        color: black;
+        border-radius: 4px;
+        font-size: 14px; /* Slightly smaller font */
+        display: block; /* Ensures each field starts on a new line */
+      }
+  
+      .contact-label {
+        font-size: 16px; /* Label font size */
+        color: white;
+        margin-top: 10px;
+        display: block;
+      }
+  
+      .submit-btn {
+        padding: 10px 20px;
+        background-color: #0077cc;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+  
+      .submit-btn:hover {
+        background-color: #005fa3;
+      }
+    </style>
+  
+    <form id="contact-form" onsubmit="return showThankYou()">
+      <label for="name" class="contact-label">Your Name:</label>
+      <input type="text" id="name" name="name" required class="contact-input" />
+  
+      <label for="contact" class="contact-label">Your Contact Number / Mail:</label>
+      <input type="text" id="contact" name="contact" required class="contact-input" />
+  
+      <label for="message" class="contact-label">Your Message:</label>
+      <textarea id="message" name="message" rows="5" required class="contact-input"></textarea>
+  
+      <button type="submit" class="submit-btn">Send Mail</button>
+    </form>
+  
+    <div id="thank-you-message" style="display:none; font-size:18px; color:lightgreen;">
+      <p>Thank you for your message!</p>
+    </div>
+  
+    <script>
+      function showThankYou() {
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('thank-you-message').style.display = 'block';
+        return false;
+      }
+    </script>
+  </div>
+  

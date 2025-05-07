@@ -1,103 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: black;
-            color: white;
-        }
-        .sidebar {
-            width: 200px;
-            background-color: #f0f0f0;
-            padding: 10px;
-            position: fixed;
-            height: 100%;
-            left: -200px;
-            transition: left 0.3s;
-        }
-        .sidebar a {
-            display: block;
-            padding: 10px;
-            text-decoration: none;
-            color: goldenrod;
-        }
-        .sidebar a:hover {
-            background-color: #ddd;
-        }
-        .content {
-            margin-left: 20px;
-            padding: 20px;
-        }
-        .text-area {
-            width: 100%;
-            height: 200px;
-            background-color: #333;
-            color: white;
-            border: 1px solid goldenrod;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        .toolbar {
-            margin-bottom: 10px;
-        }
-        .toolbar button {
-            background-color: goldenrod;
-            border: none;
-            color: black;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-        .toolbar button:hover {
-            background-color: #ddd;
-        }
-    </style>
-</head>
-<body>
-    <div class="sidebar" id="sidebar">
-        <a href="index.html">Home</a>
-        <a href="#">My Learnings</a>
-        <a href="#">DevOps Flow</a>
-        <a href="about.html">About Me</a>
+<div id="aboutMe" class="content-section">
+    <h2>About Me</h2>
+  
+    <!-- Experience Section for Tata Consultancy Services -->
+    <div class="experience">
+      <h3 class="company-name">TATA CONSULTANCY SERVICES</h3>
+      <h4>Cloud Engineer | Project -1 | Cloud DevOps | June 2021 - Oct 2024</h4>
+      <div class="content-box">
+        <ul>
+          <li><strong>Web Application Implementation in AWS:</strong> Deployed web applications in AWS using S3 for the front end and Elastic Beanstalk for the back end, served via Cloud Front as the origin cred with Secrets Manager.</li>
+          <li><strong>Database Integration with Secrets Manager:</strong> Developed and integrated databases (AWS RDS) with Secrets Manager for secure data management.</li>
+          <li><strong>AWS Lambda for Data Processing:</strong> Hands-on with AWS Lambda function (Python) troubleshooting which efficiently transfers data from S3 (txt files) into RDS MySQL databases, triggered when objects are poured into the source bucket in S3.</li>
+          <li><strong>Build and Deployment Management:</strong> Independently managed the build and deployment processes across multiple environments (Dev, QA, Prod) in the cloud.</li>
+          <li><strong>Application Deployment in AWS EKS:</strong> Deployed microservices in AWS EKS clusters using deployment and service YAML files.</li>
+          <li><strong>Monitoring and Notification Management:</strong> Monitored Kibana dashboards for notification management, with CloudWatch logs and SNS for alarm trigger management.</li>
+          <li><strong>Server Management:</strong> Worked efficiently in Apache Tomcat server for application functionalities and patching.</li>
+        </ul>
+      </div>
     </div>
-    <div class="content">
-        <h1>About Me</h1>
-        <div class="toolbar">
-            <button onclick="execCmd('bold')">Bold</button>
-            <button onclick="execCmd('italic')">Italic</button>
-            <button onclick="execCmd('underline')">Underline</button>
-            <button onclick="execCmd('foreColor', 'red')">Red</button>
-            <button onclick="execCmd('foreColor', 'green')">Green</button>
-            <button onclick="execCmd('foreColor', 'blue')">Blue</button>
-        </div>
-        <div class="text-area" id="textArea" contenteditable="true"></div>
+  
+    <!-- Experience Section for Accenture -->
+    <div class="experience">
+      <h3 class="company-name">ACCENTURE</h3>
+      <h4>Technical Architecture Sr. Analyst | Oct 2024 - Present</h4>
+      <div class="content-box">
+        <ul>
+          <li><strong>DevOps with Azure:</strong> Working with Terraform as Infrastructure as Code (IaC) and GitHub actions for Continuous Integration (CI). Also, working with IaaS with IaC to build VMs with disk management, VNet configuration, AUM, Blob storage, Workspace, VMSS, Key vault.</li>
+          <li><strong>Tools:</strong> GitHub Boards (story tracking), Prometheus, Grafana, Densify, Service Now, PAM.</li>
+          <li><strong>OS:</strong> Windows and Linux (Performed RHEL Upgrade, Patching, Resizing).</li>
+        </ul>
+      </div>
     </div>
-
-    <script>
-        // Sidebar show/hide
-        document.body.addEventListener('mousemove', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            if (event.clientX < 50) {
-                sidebar.style.left = '0';
-            } else {
-                sidebar.style.left = '-200px';
-            }
-        });
-
-        // Save content to local storage
-        const textArea = document.getElementById('textArea');
-        textArea.innerHTML = localStorage.getItem('aboutMeContent') || '';
-        textArea.addEventListener('input', function() {
-            localStorage.setItem('aboutMeContent', textArea.innerHTML);
-        });
-
-        // Text editing commands
-        function execCmd(command, value = null) {
-            document.execCommand(command, false, value);
-        }
-    </script>
-</body>
-</html>
+  
+  </div>
+  
+  <style>
+    #aboutMe {
+      font-family: 'Arial', sans-serif;
+      color: #fff;
+      padding: 30px;
+      text-align: left;
+    }
+  
+    #aboutMe h2 {
+      font-size: 3rem;
+      color: #ff7f50; /* Stylish orange color */
+      margin-bottom: 20px;
+    }
+  
+    .experience {
+      margin-bottom: 30px;
+    }
+  
+    .company-name {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #00bcd4; /* Cyan color for the company name to match black background */
+    }
+  
+    .experience h4 {
+      font-size: 1.8rem;
+      font-style: italic;
+      margin-top: 10px;
+      color: #ddd; /* Light gray color for project details */
+    }
+  
+    .content-box {
+      background-color: #333;
+      border: 2px solid #ff7f50; /* Orange border */
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 10px;
+      width: 100%; /* Rectangular box */
+      max-width: 800px; /* Max width for readability */
+    }
+  
+    .content-box ul {
+      list-style-type: disc;
+      margin-left: 40px;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+  
+    .content-box li {
+      margin-bottom: 10px;
+    }
+  
+    .content-box strong {
+      color: #ff7f50; /* Orange color for headings inside lists */
+    }
+  
+  </style>
+  
